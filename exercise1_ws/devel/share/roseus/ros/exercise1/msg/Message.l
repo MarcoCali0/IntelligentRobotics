@@ -1,0 +1,1 @@
+/home/marco/IntelligentRobotics/exercise1_ws/devel/.private/exercise1/share/roseus/ros/exercise1/msg/Message.l

@@ -1,0 +1,8 @@
+[31m[1mCMake Error[0m at /opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake:197 (message):
+  generate_messages() must be called before catkin_package() in project
+  'intro_tutorial'
+[36mCall Stack (most recent call first):[0m
+  CMakeLists.txt:233 (generate_messages)
+
+
+make: *** [Makefile:618: cmake_check_build_system] Error 1

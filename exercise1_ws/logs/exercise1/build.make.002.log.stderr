@@ -1,0 +1,20 @@
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:9:77:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::advertise<std_msgs::String>(const char [12])[m[K’
+    9 |     ros::Publisher chatter_pub = n.advertise<std_msgs::String>("robot_state"[01;31m[K)[m[K;
+      |                                                                             [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, bool) [with M = std_msgs::String_<std::allocator<void> >; std::string = std::__cxx11::basic_string<char>; uint32_t = unsigned int][m[K’
+  249 |     Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size, bool latch = false)
+      |               [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 1 provided
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, const SubscriberStatusCallback&, const SubscriberStatusCallback&, const VoidConstPtr&, bool) [with M = std_msgs::String_<std::allocator<void> >; std::string = std::__cxx11::basic_string<char>; uint32_t = unsigned int; ros::SubscriberStatusCallback = boost::function<void(const ros::SingleSubscriberPublisher&)>; ros::VoidConstPtr = boost::shared_ptr<const void>][m[K’
+  315 |   Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size,
+      |             [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[K  candidate expects 6 arguments, 1 provided
+make[2]: *** [CMakeFiles/cleaner_robot.dir/build.make:63: CMakeFiles/cleaner_robot.dir/src/cleaner_robot.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:292: CMakeFiles/cleaner_robot.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2

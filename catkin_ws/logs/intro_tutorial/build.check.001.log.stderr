@@ -1,0 +1,7 @@
+[31m[1mCMake Error[0m at /opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake:77 (message):
+  add_message_files() called with unused arguments: ATTACHED_FILES;msg1.msg
+[36mCall Stack (most recent call first):[0m
+  CMakeLists.txt:219 (add_message_files)
+
+
+make: *** [Makefile:618: cmake_check_build_system] Error 1

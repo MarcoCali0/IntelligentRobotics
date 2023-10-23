@@ -1,0 +1,8 @@
+prefix=/home/marco/IntelligentRobotics/catkin_ws/install
+
+Name: intro_tutorial
+Description: Description of intro_tutorial
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime actionlib

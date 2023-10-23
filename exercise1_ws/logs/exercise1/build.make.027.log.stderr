@@ -1,0 +1,21 @@
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:45:38:[m[K [01;31m[Kerror: [m[K‘[01m[Knh[m[K’ was not declared in this scope; did you mean ‘[01m[Kn[m[K’?
+   45 |     ros::Timer battery_level_timer = [01;31m[Knh[m[K.createTimer(ros::Duration(2), [&battery](const ros::TimerEvent &)
+      |                                      [01;31m[K^~[m[K
+      |                                      [32m[Kn[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:45:73:[m[K [01;31m[Kerror: [m[K‘[01m[Kbattery[m[K’ was not declared in this scope
+   45 |     ros::Timer battery_level_timer = nh.createTimer(ros::Duration(2), [&[01;31m[Kbattery[m[K](const ros::TimerEvent &)
+      |                                                                         [01;31m[K^~~~~~~[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:[m[K In lambda function:
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:46:72:[m[K [01;31m[Kerror: [m[K‘[01m[Kbattery[m[K’ is not captured
+   46 |                                                     { decrease_battery([01;31m[Kbattery[m[K); });
+      |                                                                        [01;31m[K^~~~~~~[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:45:80:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+   45 |     ros::Timer battery_level_timer = nh.createTimer(ros::Duration(2), [&battery[01;36m[K][m[K(const ros::TimerEvent &)
+      |                                                                                [01;36m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:45:73:[m[K [01;36m[Knote: [m[K‘[01m[K<typeprefixerror>battery[m[K’ declared here
+   45 |     ros::Timer battery_level_timer = nh.createTimer(ros::Duration(2), [&[01;36m[Kbattery[m[K](const ros::TimerEvent &)
+      |                                                                         [01;36m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/cleaner_robot.dir/build.make:63: CMakeFiles/cleaner_robot.dir/src/cleaner_robot.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:631: CMakeFiles/cleaner_robot.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

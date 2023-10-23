@@ -1,0 +1,8 @@
+[01m[K/home/marco/IntelligentRobotics/catkin_ws/src/intro_tutorial/src/fibonacci_client.cpp:[m[K In function ‘[01m[Kvoid feedbackCb(const FibonacciFeedbackConstPtr&)[m[K’:
+[01m[K/home/marco/IntelligentRobotics/catkin_ws/src/intro_tutorial/src/fibonacci_client.cpp:13:5:[m[K [01;31m[Kerror: [m[K‘[01m[KROSCONSOLE_PRINT[m[K’ was not declared in this scope; did you mean ‘[01m[KROSCONSOLE_AUTOINIT[m[K’?
+   13 |     [01;31m[KROSCONSOLE_PRINT[m[K("Type of feedback: %s", typeid(feedback->sequence).name());
+      |     [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |     [32m[KROSCONSOLE_AUTOINIT[m[K
+make[2]: *** [CMakeFiles/fibonacci_client.dir/build.make:63: CMakeFiles/fibonacci_client.dir/src/fibonacci_client.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:1024: CMakeFiles/fibonacci_client.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,43 @@
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:12:18:[m[K [01;31m[Kerror: [m[Kexpected identifier before ‘[01m[K{[m[K’ token
+   12 | room rooms[] = [ [01;31m[K{[m[K"Robot Vision Lab", 1},
+      |                  [01;31m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:12:41:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K][m[K’ before ‘[01m[K,[m[K’ token
+   12 | room rooms[] = [ {"Robot Vision Lab", 1}[01;31m[K,[m[K
+      |                                         [01;31m[K^[m[K
+      |                                         [32m[K][m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:[m[K In lambda function:
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:12:41:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K{[m[K’ before ‘[01m[K,[m[K’ token
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:[m[K At global scope:
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:12:6:[m[K [01;31m[Kerror: [m[Kinitializer fails to determine size of ‘[01m[Krooms[m[K’
+   12 | room [01;31m[Krooms[m[K[] = [ {"Robot Vision Lab", 1},
+      |      [01;31m[K^~~~~[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:12:41:[m[K [01;31m[Kerror: [m[Karray must be initialized with a brace-enclosed initializer
+   12 | room rooms[] = [ {"Robot Vision Lab", 1}[01;31m[K,[m[K
+      |                                         [01;31m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:13:18:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K{[m[K’ token
+   13 |                  [01;31m[K{[m[K"SSL Lab", 2},
+      |                  [01;31m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:13:32:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K,[m[K’ token
+   13 |                  {"SSL Lab", 2}[01;31m[K,[m[K
+      |                                [01;31m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:14:18:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K{[m[K’ token
+   14 |                  [01;31m[K{[m[K"Neurorobotics Lab", 3},
+      |                  [01;31m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:14:42:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K,[m[K’ token
+   14 |                  {"Neurorobotics Lab", 3}[01;31m[K,[m[K
+      |                                          [01;31m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:15:18:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K{[m[K’ token
+   15 |                  [01;31m[K{[m[K"IAS Lab", 4},
+      |                  [01;31m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:15:32:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K,[m[K’ token
+   15 |                  {"IAS Lab", 4}[01;31m[K,[m[K
+      |                                [01;31m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:16:18:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K{[m[K’ token
+   16 |                  [01;31m[K{[m[K"Autonomous Robotics Lab", 5} ];
+      |                  [01;31m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:16:49:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K][m[K’ token
+   16 |                  {"Autonomous Robotics Lab", 5} [01;31m[K][m[K;
+      |                                                 [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/cleaner_robot.dir/build.make:63: CMakeFiles/cleaner_robot.dir/src/cleaner_robot.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:631: CMakeFiles/cleaner_robot.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

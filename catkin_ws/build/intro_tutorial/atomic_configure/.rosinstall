@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/marco/IntelligentRobotics/catkin_ws/devel/.private/intro_tutorial/setup.sh

@@ -1,0 +1,17 @@
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target _exercise1_generate_messages_check_deps_Message
+[ 27%] Built target exercise1_generate_messages_cpp
+[ 27%] Built target exercise1_generate_messages_py
+[ 36%] Built target exercise1_generate_messages_nodejs
+[ 45%] Built target exercise1_generate_messages_lisp
+[35m[1mScanning dependencies of target cleaner_robot[0m
+[ 63%] Built target exercise1_generate_messages_eus
+[ 81%] Built target charging_station
+[ 90%] [32mBuilding CXX object CMakeFiles/cleaner_robot.dir/src/cleaner_robot.cpp.o[0m
+[ 90%] Built target exercise1_generate_messages
+[100%] [32m[1mLinking CXX executable /home/marco/IntelligentRobotics/exercise1_ws/devel/.private/exercise1/lib/exercise1/cleaner_robot[0m
+[100%] Built target cleaner_robot
