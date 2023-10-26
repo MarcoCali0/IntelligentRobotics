@@ -1,0 +1,6 @@
+devel_space: /home/marco/IntelligentRobotics/exercise1_ws/devel
+install: false
+install_space: /home/marco/IntelligentRobotics/exercise1_ws/install
+profile: default
+source_space: /home/marco/IntelligentRobotics/exercise1_ws/src
+workspace: /home/marco/IntelligentRobotics/exercise1_ws

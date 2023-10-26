@@ -1,0 +1,1 @@
+/home/marco/IntelligentRobotics/exercise1_ws/devel/.private/exercise1/share/common-lisp/ros/exercise1/msg/exercise1-msg.asd
