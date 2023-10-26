@@ -49,11 +49,11 @@ int main(int argc, char **argv)
     ros::Rate loop_rate(5); // 5 Hz communication
 
     uint8_t battery = 100;
-    ros::Timer battery_level_timer = n.createTimer(ros::Duration(1), [&battery](const ros::TimerEvent &)
+    ros::Timer battery_level_timer = n.createTimer(ros::Duration(10), [&battery](const ros::TimerEvent &)
                                                    { decrease_battery(battery); });
 
     room current_room = change_room();
-    ros::Timer room_changer_timer = n.createTimer(ros::Duration(10), [&current_room](const ros::TimerEvent &)
+    ros::Timer room_changer_timer = n.createTimer(ros::Duration(20), [&current_room](const ros::TimerEvent &)
                                                   { change_room_callback(current_room); });
 
     while (ros::ok())
