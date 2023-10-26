@@ -1,1 +1,0 @@
-/home/marco/IntelligentRobotics/exercise1_ws/devel/.private/exercise1/lib/python3/dist-packages/exercise1/__init__.py
