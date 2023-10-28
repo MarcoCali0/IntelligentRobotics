@@ -1,0 +1,10 @@
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:70:79:[m[K [01;31m[Kerror: [m[Kinvalid use of non-static member function ‘[01m[Kbool Robot::get_robot_state(exercise2::Service::Request&, exercise2::Service::Response&)[m[K’
+   70 |     ros::ServiceServer service = n.advertiseService("/get_robot_state", [01;31m[Krobot.get_robot_state[m[K);
+      |                                                                         [01;31m[K~~~~~~^~~~~~~~~~~~~~~[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:30:10:[m[K [01;36m[Knote: [m[Kdeclared here
+   30 |     bool [01;36m[Kget_robot_state[m[K(exercise2::Service::Request &req, exercise2::Service::Response &res)
+      |          [01;36m[K^~~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/cleaner_robot.dir/build.make:63: CMakeFiles/cleaner_robot.dir/src/cleaner_robot.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:721: CMakeFiles/cleaner_robot.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

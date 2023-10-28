@@ -1,0 +1,13 @@
+[31m[1mCMake Error[0m at /home/marco/IntelligentRobotics/exercise2_ws/build/exercise2/cmake/exercise2-genmsg.cmake:3 (message):
+  Could not find messages which
+  '/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/srv/Service.srv'
+  depends on.  Did you forget to specify generate_messages(DEPENDENCIES ...)?
+
+  Cannot locate message [int] in package [exercise2] with paths
+  [['/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg']]
+[36mCall Stack (most recent call first):[0m
+  /opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake:307 (include)
+  CMakeLists.txt:69 (generate_messages)
+
+
+make: *** [Makefile:800: cmake_check_build_system] Error 1

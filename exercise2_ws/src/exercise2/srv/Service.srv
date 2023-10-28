@@ -1,0 +1,7 @@
+# request
+# string header
+int16 station_ID
+---
+# response
+string header 
+Message message

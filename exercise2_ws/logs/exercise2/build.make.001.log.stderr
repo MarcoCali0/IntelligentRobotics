@@ -1,0 +1,36 @@
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:50:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kuint8_t[m[K’ is not a member of ‘[01m[Kros[m[K’
+   50 |     [01;31m[Kuint8_t[m[K battery = 100;
+      |     [01;31m[K^~~~~~~[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:50:5:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+In file included from [01m[K/usr/include/stdint.h:37[m[K,
+                 from [01m[K/usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h:9[m[K,
+                 from [01m[K/usr/include/c++/9/cstdint:41[m[K,
+                 from [01m[K/usr/include/c++/9/bits/char_traits.h:628[m[K,
+                 from [01m[K/usr/include/c++/9/string:40[m[K,
+                 from [01m[K/opt/ros/noetic/include/ros/platform.h:38[m[K,
+                 from [01m[K/opt/ros/noetic/include/ros/time.h:53[m[K,
+                 from [01m[K/opt/ros/noetic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:1[m[K:
+[01m[K/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:24:19:[m[K [01;36m[Knote: [m[K  ‘[01m[Kuint8_t[m[K’
+   24 | typedef __uint8_t [01;36m[Kuint8_t[m[K;
+      |                   [01;36m[K^~~~~~~[m[K
+[01m[K/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:24:19:[m[K [01;36m[Knote: [m[K  ‘[01m[Kuint8_t[m[K’
+[01m[K/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:24:19:[m[K [01;36m[Knote: [m[K  ‘[01m[Kuint8_t[m[K’
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:51:73:[m[K [01;31m[Kerror: [m[K‘[01m[Kbattery[m[K’ was not declared in this scope
+   51 |     ros::Timer battery_level_timer = n.createTimer(ros::Duration(10), [&[01;31m[Kbattery[m[K](const ros::TimerEvent &)
+      |                                                                         [01;31m[K^~~~~~~[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:[m[K In lambda function:
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:52:71:[m[K [01;31m[Kerror: [m[K‘[01m[Kbattery[m[K’ is not captured
+   52 |                                                    { decrease_battery([01;31m[Kbattery[m[K); });
+      |                                                                       [01;31m[K^~~~~~~[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:51:80:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+   51 |     ros::Timer battery_level_timer = n.createTimer(ros::Duration(10), [&battery[01;36m[K][m[K(const ros::TimerEvent &)
+      |                                                                                [01;36m[K^[m[K
+[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:51:73:[m[K [01;36m[Knote: [m[K‘[01m[K<typeprefixerror>battery[m[K’ declared here
+   51 |     ros::Timer battery_level_timer = n.createTimer(ros::Duration(10), [&[01;36m[Kbattery[m[K](const ros::TimerEvent &)
+      |                                                                         [01;36m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/cleaner_robot.dir/build.make:63: CMakeFiles/cleaner_robot.dir/src/cleaner_robot.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:721: CMakeFiles/cleaner_robot.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2
