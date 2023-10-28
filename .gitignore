@@ -1,2 +1,3 @@
 exercise2_ws/.catkin_tools/profiles/default/devel_collisions.txt
-exercise2_ws/logs/*
+exercise2_ws/logs/
+exercise2_ws/devel/
