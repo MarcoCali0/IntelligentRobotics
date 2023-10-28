@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <std_msgs/Header.h>
 
 namespace exercise2
 {
@@ -24,14 +25,19 @@ struct ServiceRequest_
   typedef ServiceRequest_<ContainerAllocator> Type;
 
   ServiceRequest_()
-    : station_ID(0)  {
+    : header()
+    , station_ID(0)  {
     }
   ServiceRequest_(const ContainerAllocator& _alloc)
-    : station_ID(0)  {
+    : header(_alloc)
+    , station_ID(0)  {
   (void)_alloc;
     }
 
 
+
+   typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
+  _header_type header;
 
    typedef int16_t _station_ID_type;
   _station_ID_type station_ID;
@@ -65,7 +71,8 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::exercise2::ServiceRequest_<ContainerAllocator1> & lhs, const ::exercise2::ServiceRequest_<ContainerAllocator2> & rhs)
 {
-  return lhs.station_ID == rhs.station_ID;
+  return lhs.header == rhs.header &&
+    lhs.station_ID == rhs.station_ID;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -98,22 +105,22 @@ struct IsMessage< ::exercise2::ServiceRequest_<ContainerAllocator> const>
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::exercise2::ServiceRequest_<ContainerAllocator> >
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::exercise2::ServiceRequest_<ContainerAllocator> const>
-  : TrueType
+  : FalseType
   { };
 
 template <class ContainerAllocator>
 struct HasHeader< ::exercise2::ServiceRequest_<ContainerAllocator> >
-  : FalseType
+  : TrueType
   { };
 
 template <class ContainerAllocator>
 struct HasHeader< ::exercise2::ServiceRequest_<ContainerAllocator> const>
-  : FalseType
+  : TrueType
   { };
 
 
@@ -122,12 +129,12 @@ struct MD5Sum< ::exercise2::ServiceRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "aedbf9b210b5af3c248bf527a8382076";
+    return "e544a5f71d848750719e0a37c2a2e4ec";
   }
 
   static const char* value(const ::exercise2::ServiceRequest_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xaedbf9b210b5af3cULL;
-  static const uint64_t static_value2 = 0x248bf527a8382076ULL;
+  static const uint64_t static_value1 = 0xe544a5f71d848750ULL;
+  static const uint64_t static_value2 = 0x719e0a37c2a2e4ecULL;
 };
 
 template<class ContainerAllocator>
@@ -147,8 +154,24 @@ struct Definition< ::exercise2::ServiceRequest_<ContainerAllocator> >
   static const char* value()
   {
     return "# request\n"
-"# std_msgs/Header header\n"
+"std_msgs/Header header\n"
 "int16 station_ID\n"
+"\n"
+"================================================================================\n"
+"MSG: std_msgs/Header\n"
+"# Standard metadata for higher-level stamped data types.\n"
+"# This is generally used to communicate timestamped data \n"
+"# in a particular coordinate frame.\n"
+"# \n"
+"# sequence ID: consecutively increasing ID \n"
+"uint32 seq\n"
+"#Two-integer timestamp that is expressed as:\n"
+"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
+"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
+"# time-handling sugar is provided by the client library\n"
+"time stamp\n"
+"#Frame this data is associated with\n"
+"string frame_id\n"
 ;
   }
 
@@ -167,6 +190,7 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
+      stream.next(m.header);
       stream.next(m.station_ID);
     }
 
@@ -186,6 +210,9 @@ struct Printer< ::exercise2::ServiceRequest_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::exercise2::ServiceRequest_<ContainerAllocator>& v)
   {
+    s << indent << "header: ";
+    s << std::endl;
+    Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
     s << indent << "station_ID: ";
     Printer<int16_t>::stream(s, indent + "  ", v.station_ID);
   }

@@ -30,7 +30,7 @@ public:
 
     bool get_robot_state(exercise2::Service::Request &req, exercise2::Service::Response &res)
     {
-        ROS_INFO("REQUEST RECEIVED");
+        ROS_INFO("REQUEST RECEIVED FROM STATION WITH ID %d", req.station_ID);
         exercise2::Message msg;
         msg.room_name = this->current_room.room_name;
         msg.room_ID = this->current_room.ID;
@@ -39,11 +39,11 @@ public:
         std_msgs::Header header;
         res.header = header;
         res.header.stamp = ros::Time::now();
-        res.header.frame_id = "charging_station";
+        res.header.frame_id = "robot_frame";
         res.header.seq = this->seq;
         res.message = msg;
         this->seq++;
-        
+
         return true;
     }
 

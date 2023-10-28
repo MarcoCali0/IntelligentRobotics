@@ -11,11 +11,11 @@ const _deserializer = _ros_msg_utils.Deserialize;
 const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
+let std_msgs = _finder('std_msgs');
 
 //-----------------------------------------------------------
 
 let Message = require('../msg/Message.js');
-let std_msgs = _finder('std_msgs');
 
 //-----------------------------------------------------------
 
@@ -23,9 +23,16 @@ class ServiceRequest {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
+      this.header = null;
       this.station_ID = null;
     }
     else {
+      if (initObj.hasOwnProperty('header')) {
+        this.header = initObj.header
+      }
+      else {
+        this.header = new std_msgs.msg.Header();
+      }
       if (initObj.hasOwnProperty('station_ID')) {
         this.station_ID = initObj.station_ID
       }
@@ -37,6 +44,8 @@ class ServiceRequest {
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type ServiceRequest
+    // Serialize message field [header]
+    bufferOffset = std_msgs.msg.Header.serialize(obj.header, buffer, bufferOffset);
     // Serialize message field [station_ID]
     bufferOffset = _serializer.int16(obj.station_ID, buffer, bufferOffset);
     return bufferOffset;
@@ -46,13 +55,17 @@ class ServiceRequest {
     //deserializes a message object of type ServiceRequest
     let len;
     let data = new ServiceRequest(null);
+    // Deserialize message field [header]
+    data.header = std_msgs.msg.Header.deserialize(buffer, bufferOffset);
     // Deserialize message field [station_ID]
     data.station_ID = _deserializer.int16(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 2;
+    let length = 0;
+    length += std_msgs.msg.Header.getMessageSize(object.header);
+    return length + 2;
   }
 
   static datatype() {
@@ -62,15 +75,31 @@ class ServiceRequest {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'aedbf9b210b5af3c248bf527a8382076';
+    return 'e544a5f71d848750719e0a37c2a2e4ec';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     # request
-    # std_msgs/Header header
+    std_msgs/Header header
     int16 station_ID
+    
+    ================================================================================
+    MSG: std_msgs/Header
+    # Standard metadata for higher-level stamped data types.
+    # This is generally used to communicate timestamped data 
+    # in a particular coordinate frame.
+    # 
+    # sequence ID: consecutively increasing ID 
+    uint32 seq
+    #Two-integer timestamp that is expressed as:
+    # * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
+    # * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
+    # time-handling sugar is provided by the client library
+    time stamp
+    #Frame this data is associated with
+    string frame_id
     
     `;
   }
@@ -81,6 +110,13 @@ class ServiceRequest {
       msg = {};
     }
     const resolved = new ServiceRequest(null);
+    if (msg.header !== undefined) {
+      resolved.header = std_msgs.msg.Header.Resolve(msg.header)
+    }
+    else {
+      resolved.header = new std_msgs.msg.Header()
+    }
+
     if (msg.station_ID !== undefined) {
       resolved.station_ID = msg.station_ID;
     }
@@ -215,6 +251,6 @@ class ServiceResponse {
 module.exports = {
   Request: ServiceRequest,
   Response: ServiceResponse,
-  md5sum() { return '9671e58bec85efbba1923ae558a87802'; },
+  md5sum() { return 'c2fa96eb2bd06c7aa128b61b7f5a3487'; },
   datatype() { return 'exercise2/Service'; }
 };

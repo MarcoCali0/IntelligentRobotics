@@ -3,6 +3,9 @@
 
 CMakeFiles/charging_station.dir/src/charging_station.cpp.o
  /home/marco/IntelligentRobotics/exercise2_ws/devel/.private/exercise2/include/exercise2/Message.h
+ /home/marco/IntelligentRobotics/exercise2_ws/devel/.private/exercise2/include/exercise2/Service.h
+ /home/marco/IntelligentRobotics/exercise2_ws/devel/.private/exercise2/include/exercise2/ServiceRequest.h
+ /home/marco/IntelligentRobotics/exercise2_ws/devel/.private/exercise2/include/exercise2/ServiceResponse.h
  /home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/charging_station.cpp
  /opt/ros/noetic/include/ros/advertise_options.h
  /opt/ros/noetic/include/ros/advertise_service_options.h
@@ -60,6 +63,7 @@ CMakeFiles/charging_station.dir/src/charging_station.cpp.o
  /opt/ros/noetic/include/ros/wall_timer.h
  /opt/ros/noetic/include/ros/wall_timer_options.h
  /opt/ros/noetic/include/rosconsole/macros_generated.h
+ /opt/ros/noetic/include/std_msgs/Header.h
  /opt/ros/noetic/include/std_msgs/String.h
  /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
  /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h

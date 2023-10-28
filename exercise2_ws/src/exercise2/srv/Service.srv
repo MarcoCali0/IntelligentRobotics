@@ -1,5 +1,5 @@
 # request
-# std_msgs/Header header
+std_msgs/Header header
 int16 station_ID
 ---
 # response

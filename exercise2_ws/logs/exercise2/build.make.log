@@ -1,15 +1,18 @@
 [  0%] Built target std_msgs_generate_messages_cpp
 [  0%] Built target std_msgs_generate_messages_lisp
 [  0%] Built target std_msgs_generate_messages_py
-[  0%] Built target _exercise2_generate_messages_check_deps_Message
-[  0%] Built target _exercise2_generate_messages_check_deps_Service
 [  0%] Built target std_msgs_generate_messages_nodejs
 [  0%] Built target std_msgs_generate_messages_eus
-[ 11%] Built target exercise2_generate_messages_cpp
-[ 23%] Built target exercise2_generate_messages_lisp
-[ 47%] Built target exercise2_generate_messages_py
-[ 58%] Built target exercise2_generate_messages_nodejs
+[  0%] Built target _exercise2_generate_messages_check_deps_Service
+[  0%] Built target _exercise2_generate_messages_check_deps_Message
+[ 11%] Built target exercise2_generate_messages_nodejs
+[ 35%] Built target exercise2_generate_messages_py
+[ 47%] Built target exercise2_generate_messages_cpp
+[ 58%] Built target exercise2_generate_messages_lisp
+[35m[1mScanning dependencies of target charging_station[0m
 [ 76%] Built target exercise2_generate_messages_eus
 [ 88%] Built target cleaner_robot
+[ 94%] [32mBuilding CXX object CMakeFiles/charging_station.dir/src/charging_station.cpp.o[0m
+[ 94%] Built target exercise2_generate_messages
+[100%] [32m[1mLinking CXX executable /home/marco/IntelligentRobotics/exercise2_ws/devel/.private/exercise2/lib/exercise2/charging_station[0m
 [100%] Built target charging_station
-[100%] Built target exercise2_generate_messages
