@@ -3,6 +3,7 @@
 
 (defsystem "exercise2-srv"
   :depends-on (:roslisp-msg-protocol :roslisp-utils :exercise2-msg
+               :std_msgs-msg
 )
   :components ((:file "_package")
     (:file "Service" :depends-on ("_package_Service"))

@@ -1,0 +1,11 @@
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_py
+The dependencies of the message/service 'exercise2/Service' have changed. Please rerun cmake.
+[  0%] Built target std_msgs_generate_messages_nodejs
+make[2]: *** [CMakeFiles/_exercise2_generate_messages_check_deps_Service.dir/build.make:57: CMakeFiles/_exercise2_generate_messages_check_deps_Service] Error 1
+make[1]: *** [CMakeFiles/Makefile2:937: CMakeFiles/_exercise2_generate_messages_check_deps_Service.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target _exercise2_generate_messages_check_deps_Message
+make: *** [Makefile:141: all] Error 2

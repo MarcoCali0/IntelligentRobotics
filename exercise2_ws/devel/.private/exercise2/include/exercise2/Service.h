@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::exercise2::Service > {
   static const char* value()
   {
-    return "21bd264f074ea134fbba0e8079d12124";
+    return "9671e58bec85efbba1923ae558a87802";
   }
 
   static const char* value(const ::exercise2::Service&) { return value(); }

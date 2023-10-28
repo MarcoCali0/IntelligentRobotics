@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <std_msgs/Header.h>
 #include <exercise2/Message.h>
 
 namespace exercise2
@@ -36,7 +37,7 @@ struct ServiceResponse_
 
 
 
-   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _header_type;
+   typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
   _header_type header;
 
    typedef  ::exercise2::Message_<ContainerAllocator>  _message_type;
@@ -115,12 +116,12 @@ struct IsFixedSize< ::exercise2::ServiceResponse_<ContainerAllocator> const>
 
 template <class ContainerAllocator>
 struct HasHeader< ::exercise2::ServiceResponse_<ContainerAllocator> >
-  : FalseType
+  : TrueType
   { };
 
 template <class ContainerAllocator>
 struct HasHeader< ::exercise2::ServiceResponse_<ContainerAllocator> const>
-  : FalseType
+  : TrueType
   { };
 
 
@@ -129,12 +130,12 @@ struct MD5Sum< ::exercise2::ServiceResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "77ad211c6ac6dd59d81e6f364cbe9904";
+    return "10cacc6f68c7bbd99eb534415926e511";
   }
 
   static const char* value(const ::exercise2::ServiceResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x77ad211c6ac6dd59ULL;
-  static const uint64_t static_value2 = 0xd81e6f364cbe9904ULL;
+  static const uint64_t static_value1 = 0x10cacc6f68c7bbd9ULL;
+  static const uint64_t static_value2 = 0x9eb534415926e511ULL;
 };
 
 template<class ContainerAllocator>
@@ -154,8 +155,24 @@ struct Definition< ::exercise2::ServiceResponse_<ContainerAllocator> >
   static const char* value()
   {
     return "# response\n"
-"string header \n"
+"std_msgs/Header header\n"
 "Message message\n"
+"\n"
+"================================================================================\n"
+"MSG: std_msgs/Header\n"
+"# Standard metadata for higher-level stamped data types.\n"
+"# This is generally used to communicate timestamped data \n"
+"# in a particular coordinate frame.\n"
+"# \n"
+"# sequence ID: consecutively increasing ID \n"
+"uint32 seq\n"
+"#Two-integer timestamp that is expressed as:\n"
+"# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')\n"
+"# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')\n"
+"# time-handling sugar is provided by the client library\n"
+"time stamp\n"
+"#Frame this data is associated with\n"
+"string frame_id\n"
 "\n"
 "================================================================================\n"
 "MSG: exercise2/Message\n"
@@ -206,7 +223,8 @@ struct Printer< ::exercise2::ServiceResponse_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::exercise2::ServiceResponse_<ContainerAllocator>& v)
   {
     s << indent << "header: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.header);
+    s << std::endl;
+    Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
     s << indent << "message: ";
     s << std::endl;
     Printer< ::exercise2::Message_<ContainerAllocator> >::stream(s, indent + "  ", v.message);

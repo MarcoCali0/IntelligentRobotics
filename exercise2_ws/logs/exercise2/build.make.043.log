@@ -1,0 +1,15 @@
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target _exercise2_generate_messages_check_deps_Service
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target _exercise2_generate_messages_check_deps_Message
+[ 23%] Built target exercise2_generate_messages_py
+[ 35%] Built target exercise2_generate_messages_nodejs
+[ 47%] Built target exercise2_generate_messages_cpp
+[ 58%] Built target exercise2_generate_messages_lisp
+[ 76%] Built target exercise2_generate_messages_eus
+[ 88%] Built target cleaner_robot
+[ 88%] Built target exercise2_generate_messages
+[100%] Built target charging_station

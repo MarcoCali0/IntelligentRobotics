@@ -61,6 +61,8 @@ ros/builtin_message_traits.h
 -
 ros/message_operations.h
 -
+std_msgs/Header.h
+-
 exercise2/Message.h
 -
 
@@ -71,6 +73,8 @@ std_msgs/String.h
 /home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/std_msgs/String.h
 exercise2/Message.h
 /home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/exercise2/Message.h
+std_msgs/Header.h
+/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/std_msgs/Header.h
 exercise2/Service.h
 /home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/exercise2/Service.h
 string
@@ -725,6 +729,22 @@ ros/forwards.h
 /opt/ros/noetic/include/ros/ros/forwards.h
 
 /opt/ros/noetic/include/rosconsole/macros_generated.h
+
+/opt/ros/noetic/include/std_msgs/Header.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
 
 /opt/ros/noetic/include/std_msgs/String.h
 string

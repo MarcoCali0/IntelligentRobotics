@@ -12,7 +12,7 @@ class ServiceRequest(genpy.Message):
   _type = "exercise2/ServiceRequest"
   _has_header = False  # flag to mark the presence of a Header object
   _full_text = """# request
-# string header
+# std_msgs/Header header
 int16 station_ID
 """
   __slots__ = ['station_ID']
@@ -122,14 +122,31 @@ import genpy
 import struct
 
 import exercise2.msg
+import std_msgs.msg
 
 class ServiceResponse(genpy.Message):
-  _md5sum = "77ad211c6ac6dd59d81e6f364cbe9904"
+  _md5sum = "10cacc6f68c7bbd99eb534415926e511"
   _type = "exercise2/ServiceResponse"
-  _has_header = False  # flag to mark the presence of a Header object
+  _has_header = True  # flag to mark the presence of a Header object
   _full_text = """# response
-string header 
+std_msgs/Header header
 Message message
+
+================================================================================
+MSG: std_msgs/Header
+# Standard metadata for higher-level stamped data types.
+# This is generally used to communicate timestamped data 
+# in a particular coordinate frame.
+# 
+# sequence ID: consecutively increasing ID 
+uint32 seq
+#Two-integer timestamp that is expressed as:
+# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
+# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
+# time-handling sugar is provided by the client library
+time stamp
+#Frame this data is associated with
+string frame_id
 
 ================================================================================
 MSG: exercise2/Message
@@ -142,7 +159,7 @@ int8 room_ID
 # level of charge of the robot battery
 int8 charge_level"""
   __slots__ = ['header','message']
-  _slot_types = ['string','exercise2/Message']
+  _slot_types = ['std_msgs/Header','exercise2/Message']
 
   def __init__(self, *args, **kwds):
     """
@@ -162,11 +179,11 @@ int8 charge_level"""
       super(ServiceResponse, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
       if self.header is None:
-        self.header = ''
+        self.header = std_msgs.msg.Header()
       if self.message is None:
         self.message = exercise2.msg.Message()
     else:
-      self.header = ''
+      self.header = std_msgs.msg.Header()
       self.message = exercise2.msg.Message()
 
   def _get_types(self):
@@ -181,7 +198,9 @@ int8 charge_level"""
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.header
+      _x = self
+      buff.write(_get_struct_3I().pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
+      _x = self.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
@@ -206,18 +225,24 @@ int8 charge_level"""
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.header is None:
+        self.header = std_msgs.msg.Header()
       if self.message is None:
         self.message = exercise2.msg.Message()
       end = 0
+      _x = self
+      start = end
+      end += 12
+      (_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
       start = end
       end += length
       if python3:
-        self.header = str[start:end].decode('utf-8', 'rosmsg')
+        self.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
       else:
-        self.header = str[start:end]
+        self.header.frame_id = str[start:end]
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -243,7 +268,9 @@ int8 charge_level"""
     :param numpy: numpy python module
     """
     try:
-      _x = self.header
+      _x = self
+      buff.write(_get_struct_3I().pack(_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs))
+      _x = self.header.frame_id
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
@@ -269,18 +296,24 @@ int8 charge_level"""
     if python3:
       codecs.lookup_error("rosmsg").msg_type = self._type
     try:
+      if self.header is None:
+        self.header = std_msgs.msg.Header()
       if self.message is None:
         self.message = exercise2.msg.Message()
       end = 0
+      _x = self
+      start = end
+      end += 12
+      (_x.header.seq, _x.header.stamp.secs, _x.header.stamp.nsecs,) = _get_struct_3I().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
       start = end
       end += length
       if python3:
-        self.header = str[start:end].decode('utf-8', 'rosmsg')
+        self.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
       else:
-        self.header = str[start:end]
+        self.header.frame_id = str[start:end]
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -308,8 +341,14 @@ def _get_struct_2b():
     if _struct_2b is None:
         _struct_2b = struct.Struct("<2b")
     return _struct_2b
+_struct_3I = None
+def _get_struct_3I():
+    global _struct_3I
+    if _struct_3I is None:
+        _struct_3I = struct.Struct("<3I")
+    return _struct_3I
 class Service(object):
   _type          = 'exercise2/Service'
-  _md5sum = '21bd264f074ea134fbba0e8079d12124'
+  _md5sum = '9671e58bec85efbba1923ae558a87802'
   _request_class  = ServiceRequest
   _response_class = ServiceResponse

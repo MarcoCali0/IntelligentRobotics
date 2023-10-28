@@ -49,16 +49,16 @@
   "exercise2/ServiceRequest")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Service-request>)))
   "Returns md5sum for a message object of type '<Service-request>"
-  "21bd264f074ea134fbba0e8079d12124")
+  "9671e58bec85efbba1923ae558a87802")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Service-request)))
   "Returns md5sum for a message object of type 'Service-request"
-  "21bd264f074ea134fbba0e8079d12124")
+  "9671e58bec85efbba1923ae558a87802")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Service-request>)))
   "Returns full string definition for message of type '<Service-request>"
-  (cl:format cl:nil "# request~%# string header~%int16 station_ID~%~%~%"))
+  (cl:format cl:nil "# request~%# std_msgs/Header header~%int16 station_ID~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Service-request)))
   "Returns full string definition for message of type 'Service-request"
-  (cl:format cl:nil "# request~%# string header~%int16 station_ID~%~%~%"))
+  (cl:format cl:nil "# request~%# std_msgs/Header header~%int16 station_ID~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Service-request>))
   (cl:+ 0
      2
@@ -74,8 +74,8 @@
   ((header
     :reader header
     :initarg :header
-    :type cl:string
-    :initform "")
+    :type std_msgs-msg:Header
+    :initform (cl:make-instance 'std_msgs-msg:Header))
    (message
     :reader message
     :initarg :message
@@ -102,24 +102,12 @@
   (message m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <Service-response>) ostream)
   "Serializes a message object of type '<Service-response>"
-  (cl:let ((__ros_str_len (cl:length (cl:slot-value msg 'header))))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
-  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) (cl:slot-value msg 'header))
+  (roslisp-msg-protocol:serialize (cl:slot-value msg 'header) ostream)
   (roslisp-msg-protocol:serialize (cl:slot-value msg 'message) ostream)
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <Service-response>) istream)
   "Deserializes a message object of type '<Service-response>"
-    (cl:let ((__ros_str_len 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'header) (cl:make-string __ros_str_len))
-      (cl:dotimes (__ros_str_idx __ros_str_len msg)
-        (cl:setf (cl:char (cl:slot-value msg 'header) __ros_str_idx) (cl:code-char (cl:read-byte istream)))))
+  (roslisp-msg-protocol:deserialize (cl:slot-value msg 'header) istream)
   (roslisp-msg-protocol:deserialize (cl:slot-value msg 'message) istream)
   msg
 )
@@ -131,19 +119,19 @@
   "exercise2/ServiceResponse")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Service-response>)))
   "Returns md5sum for a message object of type '<Service-response>"
-  "21bd264f074ea134fbba0e8079d12124")
+  "9671e58bec85efbba1923ae558a87802")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Service-response)))
   "Returns md5sum for a message object of type 'Service-response"
-  "21bd264f074ea134fbba0e8079d12124")
+  "9671e58bec85efbba1923ae558a87802")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Service-response>)))
   "Returns full string definition for message of type '<Service-response>"
-  (cl:format cl:nil "# response~%string header ~%Message message~%~%================================================================================~%MSG: exercise2/Message~%# name of the room~%string room_name~%~%# ID of the room~%int8 room_ID~%~%# level of charge of the robot battery~%int8 charge_level~%~%"))
+  (cl:format cl:nil "# response~%std_msgs/Header header~%Message message~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: exercise2/Message~%# name of the room~%string room_name~%~%# ID of the room~%int8 room_ID~%~%# level of charge of the robot battery~%int8 charge_level~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Service-response)))
   "Returns full string definition for message of type 'Service-response"
-  (cl:format cl:nil "# response~%string header ~%Message message~%~%================================================================================~%MSG: exercise2/Message~%# name of the room~%string room_name~%~%# ID of the room~%int8 room_ID~%~%# level of charge of the robot battery~%int8 charge_level~%~%"))
+  (cl:format cl:nil "# response~%std_msgs/Header header~%Message message~%~%================================================================================~%MSG: std_msgs/Header~%# Standard metadata for higher-level stamped data types.~%# This is generally used to communicate timestamped data ~%# in a particular coordinate frame.~%# ~%# sequence ID: consecutively increasing ID ~%uint32 seq~%#Two-integer timestamp that is expressed as:~%# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')~%# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')~%# time-handling sugar is provided by the client library~%time stamp~%#Frame this data is associated with~%string frame_id~%~%================================================================================~%MSG: exercise2/Message~%# name of the room~%string room_name~%~%# ID of the room~%int8 room_ID~%~%# level of charge of the robot battery~%int8 charge_level~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Service-response>))
   (cl:+ 0
-     4 (cl:length (cl:slot-value msg 'header))
+     (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'header))
      (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'message))
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <Service-response>))

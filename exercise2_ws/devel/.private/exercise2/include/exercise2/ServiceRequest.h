@@ -147,7 +147,7 @@ struct Definition< ::exercise2::ServiceRequest_<ContainerAllocator> >
   static const char* value()
   {
     return "# request\n"
-"# string header\n"
+"# std_msgs/Header header\n"
 "int16 station_ID\n"
 ;
   }

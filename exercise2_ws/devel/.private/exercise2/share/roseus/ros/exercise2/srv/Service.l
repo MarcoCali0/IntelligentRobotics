@@ -16,6 +16,8 @@
 
 
 
+(if (not (find-package "STD_MSGS"))
+  (ros::roseus-add-msgs "std_msgs"))
 
 
 (defclass exercise2::ServiceRequest
@@ -62,16 +64,20 @@
 (defmethod exercise2::ServiceResponse
   (:init
    (&key
-    ((:header __header) "")
+    ((:header __header) (instance std_msgs::Header :init))
     ((:message __message) (instance exercise2::Message :init))
     )
    (send-super :init)
-   (setq _header (string __header))
+   (setq _header __header)
    (setq _message __message)
    self)
   (:header
-   (&optional __header)
-   (if __header (setq _header __header)) _header)
+   (&rest __header)
+   (if (keywordp (car __header))
+       (send* _header __header)
+     (progn
+       (if __header (setq _header (car __header)))
+       _header)))
   (:message
    (&rest __message)
    (if (keywordp (car __message))
@@ -82,8 +88,8 @@
   (:serialization-length
    ()
    (+
-    ;; string _header
-    4 (length _header)
+    ;; std_msgs/Header _header
+    (send _header :serialization-length)
     ;; exercise2/Message _message
     (send _message :serialization-length)
     ))
@@ -91,16 +97,16 @@
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; string _header
-       (write-long (length _header) s) (princ _header s)
+     ;; std_msgs/Header _header
+       (send _header :serialize s)
      ;; exercise2/Message _message
        (send _message :serialize s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; string _header
-     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _header (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; std_msgs/Header _header
+     (send _header :deserialize buf ptr-) (incf ptr- (send _header :serialization-length))
    ;; exercise2/Message _message
      (send _message :deserialize buf ptr-) (incf ptr- (send _message :serialization-length))
    ;;
@@ -111,7 +117,7 @@
   :super ros::object
   :slots ())
 
-(setf (get exercise2::Service :md5sum-) "21bd264f074ea134fbba0e8079d12124")
+(setf (get exercise2::Service :md5sum-) "9671e58bec85efbba1923ae558a87802")
 (setf (get exercise2::Service :datatype-) "exercise2/Service")
 (setf (get exercise2::Service :request) exercise2::ServiceRequest)
 (setf (get exercise2::Service :response) exercise2::ServiceResponse)
@@ -119,16 +125,32 @@
 (defmethod exercise2::ServiceRequest
   (:response () (instance exercise2::ServiceResponse :init)))
 
-(setf (get exercise2::ServiceRequest :md5sum-) "21bd264f074ea134fbba0e8079d12124")
+(setf (get exercise2::ServiceRequest :md5sum-) "9671e58bec85efbba1923ae558a87802")
 (setf (get exercise2::ServiceRequest :datatype-) "exercise2/ServiceRequest")
 (setf (get exercise2::ServiceRequest :definition-)
       "# request
-# string header
+# std_msgs/Header header
 int16 station_ID
 ---
 # response
-string header 
+std_msgs/Header header
 Message message
+
+================================================================================
+MSG: std_msgs/Header
+# Standard metadata for higher-level stamped data types.
+# This is generally used to communicate timestamped data 
+# in a particular coordinate frame.
+# 
+# sequence ID: consecutively increasing ID 
+uint32 seq
+#Two-integer timestamp that is expressed as:
+# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
+# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
+# time-handling sugar is provided by the client library
+time stamp
+#Frame this data is associated with
+string frame_id
 
 ================================================================================
 MSG: exercise2/Message
@@ -141,16 +163,32 @@ int8 room_ID
 # level of charge of the robot battery
 ")
 
-(setf (get exercise2::ServiceResponse :md5sum-) "21bd264f074ea134fbba0e8079d12124")
+(setf (get exercise2::ServiceResponse :md5sum-) "9671e58bec85efbba1923ae558a87802")
 (setf (get exercise2::ServiceResponse :datatype-) "exercise2/ServiceResponse")
 (setf (get exercise2::ServiceResponse :definition-)
       "# request
-# string header
+# std_msgs/Header header
 int16 station_ID
 ---
 # response
-string header 
+std_msgs/Header header
 Message message
+
+================================================================================
+MSG: std_msgs/Header
+# Standard metadata for higher-level stamped data types.
+# This is generally used to communicate timestamped data 
+# in a particular coordinate frame.
+# 
+# sequence ID: consecutively increasing ID 
+uint32 seq
+#Two-integer timestamp that is expressed as:
+# * stamp.sec: seconds (stamp_secs) since epoch (in Python the variable is called 'secs')
+# * stamp.nsec: nanoseconds since stamp_secs (in Python the variable is called 'nsecs')
+# time-handling sugar is provided by the client library
+time stamp
+#Frame this data is associated with
+string frame_id
 
 ================================================================================
 MSG: exercise2/Message
@@ -165,6 +203,6 @@ int8 room_ID
 
 
 
-(provide :exercise2/Service "21bd264f074ea134fbba0e8079d12124")
+(provide :exercise2/Service "9671e58bec85efbba1923ae558a87802")
 
 

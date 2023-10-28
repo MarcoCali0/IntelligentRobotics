@@ -1,7 +1,7 @@
 # request
-# string header
+# std_msgs/Header header
 int16 station_ID
 ---
 # response
-string header 
+std_msgs/Header header
 Message message

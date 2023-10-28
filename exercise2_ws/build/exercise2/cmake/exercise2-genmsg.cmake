@@ -24,7 +24,7 @@ add_custom_target(_exercise2_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/srv/Service.srv" NAME_WE)
 add_custom_target(_exercise2_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "exercise2" "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/srv/Service.srv" "exercise2/Message"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "exercise2" "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/srv/Service.srv" "exercise2/Message:std_msgs/Header"
 )
 
 #
@@ -44,7 +44,7 @@ _generate_msg_cpp(exercise2
 _generate_srv_cpp(exercise2
   "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/srv/Service.srv"
   "${MSG_I_FLAGS}"
-  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg"
+  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/exercise2
 )
 
@@ -85,7 +85,7 @@ _generate_msg_eus(exercise2
 _generate_srv_eus(exercise2
   "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/srv/Service.srv"
   "${MSG_I_FLAGS}"
-  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg"
+  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/exercise2
 )
 
@@ -126,7 +126,7 @@ _generate_msg_lisp(exercise2
 _generate_srv_lisp(exercise2
   "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/srv/Service.srv"
   "${MSG_I_FLAGS}"
-  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg"
+  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/exercise2
 )
 
@@ -167,7 +167,7 @@ _generate_msg_nodejs(exercise2
 _generate_srv_nodejs(exercise2
   "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/srv/Service.srv"
   "${MSG_I_FLAGS}"
-  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg"
+  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/exercise2
 )
 
@@ -208,7 +208,7 @@ _generate_msg_py(exercise2
 _generate_srv_py(exercise2
   "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/srv/Service.srv"
   "${MSG_I_FLAGS}"
-  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg"
+  "/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/msg/Message.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/exercise2
 )
 
