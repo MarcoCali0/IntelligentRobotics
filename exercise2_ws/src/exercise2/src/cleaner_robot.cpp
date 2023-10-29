@@ -1,9 +1,7 @@
 #include "ros/ros.h"
-#include "std_msgs/String.h"
 #include "exercise2/Message.h"
 #include "std_msgs/Header.h"
 #include "exercise2/Service.h"
-#include <string>
 
 struct room
 {
@@ -30,12 +28,12 @@ public:
 
     bool get_robot_state(exercise2::Service::Request &req, exercise2::Service::Response &res)
     {
-        ROS_INFO("REQUEST RECEIVED FROM STATION WITH ID %d", req.station_ID);
-        
+        // Notice we're not using the request data, however this could be use for discriminating
+        // between the node making the requests and sending different data
+
         // generate the header of the service response
         res.header = std_msgs::Header();
         res.header.stamp = ros::Time::now();
-        // res.header.frame_id = "robot_frame";
         res.header.seq = this->seq;
         this->seq++;
 
@@ -48,10 +46,16 @@ public:
         return true;
     }
 
-    void decrease_battery()
+    void update_battery(const ros::TimerEvent &event)
     {
         // Reset battery when it's discharged
         this->battery = (this->battery > 0) ? (this->battery - 1) : 100;
+    }
+
+    void update_room(const ros::TimerEvent &event)
+    {
+        int index_current_room = this->current_room.ID - 1;
+        this->current_room = (index_current_room == 4) ? this->current_room = rooms[0] : rooms[index_current_room + 1];
     }
 
 private:
@@ -67,6 +71,15 @@ int main(int argc, char **argv)
     ROS_INFO("Cleaner Robot Node Started");
 
     Robot robot(100, rooms[0]);
+
+    int battery_life_seconds = 1000;
+    // The battery decreases by 1% every 10 seconds
+    ros::Timer update_battery = n.createTimer(ros::Duration(battery_life_seconds / 100), &Robot::update_battery, &robot);
+
+    int duration_cleaning = 20;
+    // The robot cleans the same room for 20 seconds
+    ros::Timer update_room = n.createTimer(ros::Duration(duration_cleaning), &Robot::update_room, &robot);
+
     ros::ServiceServer service = n.advertiseService("/get_robot_state", &Robot::get_robot_state, &robot);
     ros::spin();
     return 0;
