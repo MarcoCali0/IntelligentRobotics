@@ -1,7 +1,0 @@
-[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:[m[K In member function ‘[01m[Kbool Robot::get_robot_state(exercise2::Service::Request&, exercise2::Service::Response&)[m[K’:
-[01m[K/home/marco/IntelligentRobotics/exercise2_ws/src/exercise2/src/cleaner_robot.cpp:41:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kexercise2::Service::Response[m[K’ {aka ‘[01m[Kstruct exercise2::ServiceResponse_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kseq[m[K’
-   41 |         res.[01;31m[Kseq[m[K++;
-      |             [01;31m[K^~~[m[K
-make[2]: *** [CMakeFiles/cleaner_robot.dir/build.make:63: CMakeFiles/cleaner_robot.dir/src/cleaner_robot.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:721: CMakeFiles/cleaner_robot.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

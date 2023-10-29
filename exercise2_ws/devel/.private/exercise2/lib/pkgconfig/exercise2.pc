@@ -1,8 +1,0 @@
-prefix=/home/marco/IntelligentRobotics/exercise2_ws/devel/.private/exercise2
-
-Name: exercise2
-Description: Description of exercise2
-Version: 0.0.0
-Cflags: -I/home/marco/IntelligentRobotics/exercise2_ws/devel/.private/exercise2/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime
