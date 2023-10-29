@@ -31,18 +31,19 @@ public:
     bool get_robot_state(exercise2::Service::Request &req, exercise2::Service::Response &res)
     {
         ROS_INFO("REQUEST RECEIVED FROM STATION WITH ID %d", req.station_ID);
-        exercise2::Message msg;
-        msg.room_name = this->current_room.room_name;
-        msg.room_ID = this->current_room.ID;
-        msg.charge_level = this->battery;
-
-        std_msgs::Header header;
-        res.header = header;
+        
+        // generate the header of the service response
+        res.header = std_msgs::Header();
         res.header.stamp = ros::Time::now();
-        res.header.frame_id = "robot_frame";
+        // res.header.frame_id = "robot_frame";
         res.header.seq = this->seq;
-        res.message = msg;
         this->seq++;
+
+        // generate the message of the service response
+        res.message = exercise2::Message();
+        res.message.room_name = this->current_room.room_name;
+        res.message.room_ID = this->current_room.ID;
+        res.message.charge_level = this->battery;
 
         return true;
     }
@@ -63,10 +64,10 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "cleaner_robot");
     ros::NodeHandle n;
+    ROS_INFO("Cleaner Robot Node Started");
 
     Robot robot(100, rooms[0]);
     ros::ServiceServer service = n.advertiseService("/get_robot_state", &Robot::get_robot_state, &robot);
-    ROS_INFO("Cleaner Robot Node Started");
     ros::spin();
     return 0;
 }

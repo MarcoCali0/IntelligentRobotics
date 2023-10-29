@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="cleaner_robot" pkg="exercise2" type="cleaner_robot" />
+
+    <group ns="charging_station_1">
+        <node name="charging_station" pkg="exercise2" type="charging_station" />
+        <param name="station_ID" value="423" />
+        <param name="timer" value="5" />
+    </group>
+
+    <group ns="charging_station_2">
+        <node name="charging_station" pkg="exercise2" type="charging_station" />
+        <param name="station_ID" value="424" />
+        <param name="timer" value="2" />
+    </group>
+
+    <group ns="charging_station_3">
+        <node name="charging_station" pkg="exercise2" type="charging_station" />
+        <param name="station_ID" value="425" />
+        <param name="timer" value="3" />
+    </group>
+
+    <group ns="charging_station_4">
+        <node name="charging_station" pkg="exercise2" type="charging_station" />
+        <param name="station_ID" value="427" />
+        <param name="timer" value="6" />
+    </group>
+</launch>
