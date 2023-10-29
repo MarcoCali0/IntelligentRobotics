@@ -1,10 +1,5 @@
 exercise2_ws/.catkin_tools/
 exercise2_ws/logs/
 exercise2_ws/devel/
-.vscode/c_cpp_properties.json
-exercise2_ws/.catkin_tools/profiles/default/devel_collisions.txt
-exercise2_ws/build/exercise2/CMakeFiles/charging_station.dir/src/charging_station.cpp.o
-exercise2_ws/build/exercise2/CMakeFiles/cleaner_robot.dir/src/cleaner_robot.cpp.o
-exercise2_ws/devel/.private/exercise2/lib/exercise2/charging_station
-exercise2_ws/devel/.private/exercise2/lib/exercise2/cleaner_robot
-exercise2_ws/logs/exercise2/build.make.log
+exercise2_ws/build/
+.vscode/
