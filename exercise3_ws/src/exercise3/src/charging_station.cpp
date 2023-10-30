@@ -27,7 +27,7 @@ class ChargingStation {
   void recharge_robot() {
     ROS_INFO("Asking for recharge");
     actionlib::SimpleActionClient<exercise3::RechargeAction> recharge_action(
-        "charging_station_1/recharge", true);
+        "recharge", true);
     recharge_action.waitForServer();
     exercise3::RechargeGoal goal;
 
@@ -91,13 +91,12 @@ int main(int argc, char **argv) {
   ros::NodeHandle n;
 
   // Fetch parameters from the launch file (station_ID and timer)
-  int station_ID, timer;
-  n.getParam("station_ID", station_ID);
-  n.getParam("timer", timer);
-  if (timer == 0) timer = 1;
+  int station_ID = 423;
+  int timer = 1;
 
   // Create a ChargingStation instance with the provided parameters
   ChargingStation charging_station(station_ID, timer);
+  ROS_INFO("Charging Station Node Started");
 
   // Create a timer that periodically calls the ask_robot_state service
   ros::Timer t =
