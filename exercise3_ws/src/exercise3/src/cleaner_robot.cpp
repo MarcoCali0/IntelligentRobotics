@@ -39,10 +39,11 @@ class Robot {
 
     this->seq = 0;                // Initialize sequence number
     this->is_recharging = false;  // Assume robot is not recharging
+    this->as_.start();            // Start recharge server for when it is needed
   }
 
   void execute_callback(const exercise3::RechargeGoalConstPtr &goal) {
-    ros::Rate recharge_rate(1);  // loop rate 1 Hz
+    ros::Rate recharge_rate(0.5);  // loop rate 1 Hz
     bool success = true;
 
     ROS_INFO("Recharging...");
@@ -71,7 +72,6 @@ class Robot {
       // ROS_INFO("Recharge Action: Aborted");
       as_.setAborted(result_);
     }
-
   }
 
   // Service callback to get the robot's state
@@ -79,10 +79,7 @@ class Robot {
                        exercise3::Service::Response &res) {
     // Generate the header of the service response
     res.header = std_msgs::Header();
-    if (this->is_recharging == true)
-      res.header.frame_id = "recharge_now";
-    else
-      res.header.frame_id = "cleaning";
+    res.header.frame_id = (this->is_recharging) ? "recharge_now" : "cleaning";
 
     res.header.stamp = ros::Time::now();
     res.header.seq = this->seq;
@@ -106,13 +103,12 @@ class Robot {
           "Battery Low (%d%%)! Moving towards the (nearest) charging station",
           this->battery);
       this->is_recharging = true;
-      this->as_.start();
     }
   }
 
   // Timer callback to update the current room
   void update_room(const ros::TimerEvent &event) {
-    // If the robot is recharging then we room cannot change
+    // Stop robot movements when it's recharging
     if (!this->is_recharging) {
       int index_current_room = this->current_room.ID - 1;
       this->current_room = (index_current_room == 4)
