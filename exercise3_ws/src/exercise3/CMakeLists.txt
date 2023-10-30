@@ -207,4 +207,4 @@ target_link_libraries(cleaner_robot ${catkin_LIBRARIES})
 target_link_libraries(charging_station ${catkin_LIBRARIES})
 
 add_dependencies(cleaner_robot exercise3_generate_messages_cpp)
-add_dependencies(charging_station exercise3_generate_messages_cpp)
+add_dependencies(charging_station exercise3_generate_messages_cpp ${exercise3_EXPORTED_TARGETS})

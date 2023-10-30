@@ -1,7 +1,11 @@
 # goal definition
-
+std_msgs/Header header
+int8 target_battery_level   # the maximum level of battery to charge
 ---
-# definition
-
+# result definition
+std_msgs/Header header
+bool goal_reached           # flag to confirm that the goal is reached
 --- 
-# feedback
+# feedback definition
+std_msgs/Header header
+int8 current_battery        # this has to be updated with frequency 1 Hz

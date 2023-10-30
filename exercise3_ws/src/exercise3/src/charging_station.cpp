@@ -1,3 +1,7 @@
+#include <actionlib/client/simple_action_client.h>
+#include <actionlib/client/terminal_state.h>
+#include <exercise3/RechargeAction.h>
+
 #include "exercise3/Service.h"
 #include "ros/ros.h"
 #include "std_msgs/Header.h"
@@ -29,19 +33,58 @@ class ChargingStation {
 
     if (client.call(this->srv)) {
       ROS_INFO(
-          "Charging Station %d, Current Battery Level: %d %%. Room %s (ID %d)",
+          "Charging Station %d, Current Battery Level: %d%% - Room %s (ID %d)",
           this->station_ID, this->srv.response.message.charge_level,
           this->srv.response.message.room_name.c_str(),
           this->srv.response.message.room_ID);
     }
+
+    // START RECHARGE (CONSIDER CREATING A METHOD FOR THIS)
+    if (this->srv.response.header.frame_id == "recharge_now") {
+      ROS_INFO("Asking for recharge");
+      actionlib::SimpleActionClient<exercise3::RechargeAction> recharge_action(
+          "recharge", true);
+      ROS_INFO("Waiting for action server to start.");
+      recharge_action.waitForServer();
+      ROS_INFO("Action server started, sending goal.");
+      exercise3::RechargeGoal goal;
+
+      // Generate goal
+      goal.header = std_msgs::Header();
+      goal.header.stamp = ros::Time::now();
+      goal.target_battery_level = 10;
+      recharge_action.sendGoal(
+          goal, boost::bind(&ChargingStation::doneCb, this, _1, _2),
+          boost::bind(&ChargingStation::activeCb, this),
+          boost::bind(&ChargingStation::feedbackCb, this, _1));
+
+      bool finished_before_timeout =
+          recharge_action.waitForResult(ros::Duration(100.0));
+      if (finished_before_timeout) {
+        actionlib::SimpleClientGoalState state = recharge_action.getState();
+        ROS_INFO("Action finished: %s", state.toString().c_str());
+      } else {
+        ROS_INFO("Action did not finish before the time out.");
+      }
+    }
+  }
+
+  void doneCb(const actionlib::SimpleClientGoalState &state,
+              const exercise3::RechargeResultConstPtr &result) {}
+
+  void activeCb() {}
+
+  void feedbackCb(const exercise3::RechargeFeedbackConstPtr &feedback) {
+    ROS_INFO("Recharging, current battery level %d%%",
+             feedback->current_battery);
   }
 
  private:
-  int seq;                    // Sequence number for service requests
-  int station_ID;             // ID of the charging station
-  int timer;                  // Timer duration for periodic requests
-  exercise3::Service srv;     // Service message for the request
-  ros::NodeHandle n;          // Node handle for the ChargingStation class
+  int seq;                 // Sequence number for service requests
+  int station_ID;          // ID of the charging station
+  int timer;               // Timer duration for periodic requests
+  exercise3::Service srv;  // Service message for the request
+  ros::NodeHandle n;       // Node handle for the ChargingStation class
   ros::ServiceClient client;  // Service client to call the  service
 };
 
@@ -53,6 +96,7 @@ int main(int argc, char **argv) {
   int station_ID, timer;
   n.getParam("station_ID", station_ID);
   n.getParam("timer", timer);
+  if (timer == 0) timer = 2;
 
   // Create a ChargingStation instance with the provided parameters
   ChargingStation charging_station(station_ID, timer);
