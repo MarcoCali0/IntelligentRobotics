@@ -9,4 +9,5 @@ exercise3_ws/build/
 */build
 */devel
 */logs
+*/.catkin_tools
 .vscode/
