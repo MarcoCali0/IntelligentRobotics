@@ -6,4 +6,7 @@ exercise3_ws/.catkin_tools/
 exercise3_ws/logs/
 exercise3_ws/devel/
 exercise3_ws/build/
+*/build
+*/devel
+*/logs
 .vscode/
