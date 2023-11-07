@@ -1,7 +1,5 @@
 #include "ros/ros.h"
-#include "std_msgs/String.h"
 #include "exercise1/Message.h"
-#include <string>
 #include <random>
 
 struct room

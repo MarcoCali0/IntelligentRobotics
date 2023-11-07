@@ -1,5 +1,4 @@
 #include "ros/ros.h"
-#include "std_msgs/String.h"
 #include "exercise1/Message.h"
 
 void messageCallback(const exercise1::Message::ConstPtr &msg)
