@@ -1,8 +1,0 @@
-prefix=/home/marco/IntelligentRobotics/catkin_ws/devel/.private/intro_tutorial
-
-Name: intro_tutorial
-Description: Description of intro_tutorial
-Version: 0.0.0
-Cflags: -I/home/marco/IntelligentRobotics/catkin_ws/devel/.private/intro_tutorial/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime actionlib

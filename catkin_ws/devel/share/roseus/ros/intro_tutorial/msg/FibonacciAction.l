@@ -1,1 +1,0 @@
-/home/marco/IntelligentRobotics/catkin_ws/devel/.private/intro_tutorial/share/roseus/ros/intro_tutorial/msg/FibonacciAction.l

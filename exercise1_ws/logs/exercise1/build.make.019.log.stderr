@@ -1,4 +1,0 @@
-[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:[m[K In function ‘[01m[Kroom generate_room()[m[K’:
-[01m[K/home/marco/IntelligentRobotics/exercise1_ws/src/exercise1/src/cleaner_robot.cpp:20:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
-   20 | [01;35m[K}[m[K
-      | [01;35m[K^[m[K

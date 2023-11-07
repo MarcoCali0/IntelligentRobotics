@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="cleaner_robot" pkg="exercise1" type="cleaner_robot" output="screen" />
+    <node name="charging_station" pkg="exercise1" type="charging_station" output="screen" />
+</launch>
