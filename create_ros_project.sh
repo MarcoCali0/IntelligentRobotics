@@ -41,3 +41,17 @@ cd ..
 catkin build
 
 echo "ROS project '${project_name}' has been created."
+
+cd src/${project_name}
+
+mkdir msg
+touch msg/Message.msg
+
+mkdir srv
+touch srv/Service.srv
+
+mkdir action
+touch action/Action.action
+
+mkdir launch
+touch launch/${project_name}.launch
