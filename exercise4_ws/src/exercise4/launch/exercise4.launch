@@ -1,0 +1,7 @@
+<launch>
+    <!-- Execute rosbag play command -->
+    <node pkg="rosbag" type="play" name="scan_acquisition" args="-l $(find exercise4)/bag_ex_4.bag" />
+
+    <!-- Start your nodes or launch files after rosbag -->
+    <node pkg="exercise4" type="laserscan_subscriber" name="laserscan_subscriber" output="screen" />
+</launch>
