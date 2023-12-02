@@ -117,6 +117,7 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${CMAKE_SOURCE_DIR}/include/exercise4
 )
 
 ## Declare a C++ library
@@ -204,5 +205,5 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(laserscan_subscriber src/LaserScanProcessing.cpp)
+add_executable(laserscan_subscriber src/LaserScanProcessing.cpp include/exercise4/kdtree.cpp)
 target_link_libraries(laserscan_subscriber  ${catkin_LIBRARIES})
