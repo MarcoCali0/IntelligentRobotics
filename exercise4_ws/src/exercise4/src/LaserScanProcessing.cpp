@@ -18,12 +18,14 @@ struct vec2f {
 
 class LaserScanProcessor {
  public:
+   // Performs DBSCAN
   void DBSCAN_callback(const sensor_msgs::LaserScan::ConstPtr& reading) {
     this->reset();
     processLaserScan(reading);
   }
 
-  void scan_callback(const sensor_msgs::LaserScan::ConstPtr& reading) {
+  // Performs threshold-based clustering algorithm
+  void threshold_callback(const sensor_msgs::LaserScan::ConstPtr& reading) {
     this->reset();
 
     std::vector<float> ranges_data = reading->ranges;
