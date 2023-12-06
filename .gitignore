@@ -3,4 +3,4 @@
 */logs
 */.catkin_tools
 .vscode/
-
+*.bag
