@@ -2,7 +2,7 @@
 <launch>
     <!-- Task 1: Execute rosbag play -->
     <node pkg="rosbag" type="play" name="rosbag_player"
-        args="$(find exercise_4_1)/bags/bag_es_52.bag" />
+        args="$(find exercise_4_1)/bags/bag_es_52.bag" required="true" />
 
     <!-- Task 2: Launch another launch file -->
     <include file="$(find exercise_4_1)/launch/iaslab_apriltag.launch" />
