@@ -1,0 +1,21 @@
+standalone_tags:
+  [
+    {id: 0, size: 0.052, frame_id: red_cube_0},
+    {id: 1, size: 0.052, frame_id: red_cube_1},
+    {id: 2, size: 0.052, frame_id: red_cube_2},
+    {id: 3, size: 0.052, frame_id: red_cube_3},
+    {id: 4, size: 0.052, frame_id: yellow_cyl_0},
+    {id: 5, size: 0.052, frame_id: yellow_cyl_1},
+    {id: 6, size: 0.052, frame_id: green_prism_0},
+    {id: 7, size: 0.052, frame_id: green_prism_1},
+    {id: 8, size: 0.052, frame_id: green_prism_2},
+    {id: 9, size: 0.052, frame_id: blue_cube_0},
+    {id: 10, size: 0.052, frame_id: blue_cube_1},
+    {id: 11, size: 0.052, frame_id: blue_cube_2},
+    {id: 12, size: 0.052, frame_id: blue_cube_3},
+    {id: 13, size: 0.052, frame_id: red_prism_0},
+    {id: 14, size: 0.052, frame_id: red_prism_1},
+    {id: 15, size: 0.052, frame_id: red_prism_2},
+    {id: 33, size: 0.052, frame_id: blue_big},
+    {id: 34, size: 0.052, frame_id: blue_big_2}
+  ]

@@ -1,0 +1,12 @@
+<launch>
+ <node pkg="tf"
+   type="static_transform_publisher"
+   name="robot_base"
+   args="-0.029092855194619373
+         -0.6619230631861076
+          2.0354403446894165 
+          0 
+          0 
+          0
+          /base_link /camera_base 100" />
+</launch>

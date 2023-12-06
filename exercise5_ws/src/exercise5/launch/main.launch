@@ -1,0 +1,13 @@
+<!-- main_launch_file.launch -->
+<launch>
+    <!-- Task 1: Execute rosbag play -->
+    <node pkg="rosbag" type="play" name="rosbag_player"
+        args="$(find exercise_4_1)/bags/bag_es_52.bag" />
+
+    <!-- Task 2: Launch another launch file -->
+    <include file="$(find exercise_4_1)/launch/iaslab_apriltag.launch" />
+
+    <!-- Task 3: Run a node -->
+    <node name="MeanPoint" pkg="exercise_4_1" type="MeanPoint" output="screen" />
+</launch>
+  
